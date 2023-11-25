@@ -1,0 +1,9 @@
+Flask==1.1.2
+Flask-SQLAlchemy==2.4.4
+SQLAlchemy==1.3.20 # Corrected the package name to 'SQLAlchemy'
+Flask-Migrate==2.5.3
+Flask-Script==2.0.6 # Use the latest available version
+Flask-Cors==3.0.9
+requests==2.25.0
+pika==1.1.0
+psycopg2==2.9.6

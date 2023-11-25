@@ -1,0 +1,19 @@
+services:
+  home-backend:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - .:/app
+    ports:
+      - "8001:8001"
+    environment:
+      - DJANGO_SETTINGS_MODULE=home.settings
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest  # Placeholder image, not used for SQLite
+    environment:
+      POSTGRES_DB: micro-home
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: albert

@@ -1,0 +1,20 @@
+services:
+  backend:
+    build: .
+    command: python main.py  # Update this line to the entry point of your Flask app
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"  # Update this line if you want to change the port
+    environment:
+      - FLASK_APP=main.py
+      - FLASK_RUN_HOST=0.0.0.0
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: micro-admin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: albert

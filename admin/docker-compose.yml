@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  admin-backend:
+    build: .
+    command: python manage.py runserver 0.0.0.0:9000
+    volumes:
+      - .:/app
+    ports:
+      - "9000:9000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=admin.settings
+    depends_on:
+      - db
+      - rabbitmq  # Add RabbitMQ as a dependency
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: micro-admin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: albert
+
+
+  rabbitmq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: 'python -u consumer.py'
+    depends_on:
+      - db
+
+
