@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-=)60aoq!un)*h$l=afxb$!-1hq^3x0rxgk37f3cgl5bcj#*-)!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL ='account.User'
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'producthome',
      'rest_framework',
     'corsheaders',
+    'account',
     
 ]
 

@@ -11,12 +11,12 @@ import random
 
 
 class ProductViewSet(viewsets.ViewSet):
-    def listt(self,request):
+    def list(self,request):
         product = Product.objects.all()
         serializer = ProductSerializer(product,many=True)
        
-        publish('list product',serializer.data)
-       
+     
+        
         
         return Response(serializer.data,200)
     

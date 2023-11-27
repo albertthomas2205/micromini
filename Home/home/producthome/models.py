@@ -15,3 +15,4 @@ class ProductUser(models.Model):
 
     class Meta:
         unique_together = ('user_id', 'product_id')
+        
